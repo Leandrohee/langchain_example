@@ -1,0 +1,3 @@
+from src.model_without_langchain import modelWithoutLangChain
+
+modelWithoutLangChain()
