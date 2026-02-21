@@ -49,7 +49,9 @@ def modelWithoutLangChain():
     elapsed_time = end_time - start_time
 
     only_text = answer.choices[0].message.content
-    tokens_used = answer.usage.total_tokens
+    # tokens_used = getattr(answer.usage, 'total_tokens', None)
+    tokens_used = answer.usage and answer.usage.total_tokens
+
 
     print(f"\n⏱️  Total execution time: {elapsed_time:.2f} seconds\n")
     # print(answer)
