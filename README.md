@@ -9,9 +9,19 @@ pip install --upgrade pip
 pip freeze > requirements.txt
 ```
 
-# Libs
+# Libs with pip
 
 ```bash
 pip install openai
 pip install langchain langchain-openai
+```
+
+# Libs with poetry
+
+```bash
+poetry init
+poetry add openai dotenv
+poetry add langchain langchain-openai
+poetry add black --group dev
+poetry add pre-commit --group dev
 ```
