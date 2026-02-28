@@ -7,6 +7,7 @@ which python
 deactivate
 pip install --upgrade pip    
 pip freeze > requirements.txt
+poetry run python main.py
 ```
 
 # Libs with pip
