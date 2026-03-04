@@ -25,4 +25,6 @@ poetry add openai dotenv
 poetry add langchain langchain-openai
 poetry add black --group dev
 poetry add pre-commit --group dev
+poetry add langchain-community pypdf
+poetry add langchain_chroma
 ```
