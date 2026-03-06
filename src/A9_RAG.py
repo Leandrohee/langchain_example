@@ -181,14 +181,14 @@ def take_action(state: AgentState) -> AgentState:
 # --------------------------------------------- GRAPH -------------------------------------------- #
 
 graph = StateGraph(AgentState)
-graph.add_node("llm", call_llm)
-graph.add_node("retriever_agent", take_action)
+graph.add_node("llm_node", call_llm)
+graph.add_node("retriever_agent_node", take_action)
 
+graph.set_entry_point("llm_node")
 graph.add_conditional_edges(
-    "llm", should_continue, {True: "retriever_agent", False: END}
+    "llm_node", should_continue, {True: "retriever_agent_node", False: END}
 )
-graph.add_edge("retriever_agent", "llm")
-graph.set_entry_point("llm")
+graph.add_edge("retriever_agent_node", "llm_node")
 rag_agent = graph.compile()
 
 # --------------------------------------- RUNNING THE AGENT -------------------------------------- #
